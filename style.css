@@ -1,0 +1,16 @@
+[data-camera-state] {
+    display: none;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.camera-button {
+    margin: 0.25rem;
+}
+
+#camera-wrapper video {
+    max-width: 100%;
+    border-radius: 0.5rem;
+}

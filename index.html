@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camara Pruebitas</title>
+
+    <link rel="stylesheet" href="./bulma.min.css" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Cámara centrada -->
+    <div class="section has-text-centered">
+        <div id="camera-wrapper"
+            style="display: inline-block; max-width: 100%; overflow: hidden; border-radius: 0.5rem;"></div>
+    </div>
+
+    <!-- Botones dinámicos por estado -->
+    <div class="section">
+        <div class="columns is-multiline is-centered is-mobile">
+
+            <!-- OFF -->
+            <div class="column is-12 has-text-centered" data-camera-state="off">
+                <button class="button is-success camera-button" id="startCamera">Iniciar Cámara</button>
+            </div>
+
+            <!-- IDLE -->
+            <div class="column is-12 has-text-centered" data-camera-state="idle">
+                <button class="button is-danger camera-button" id="stopCamera">Detener Cámara</button>
+                <button class="button is-primary camera-button" id="toggleCamera">Cambiar Cámara</button>
+                <button class="button is-light camera-button" id="takePhoto">Tomar Foto</button>
+                <button class="button is-dark camera-button" id="startRecording">Empezar a Grabar</button>
+            </div>
+
+            <!-- PREVIEW_IMAGE -->
+            <div class="column is-12 has-text-centered" data-camera-state="preview_image">
+                <button class="button is-light camera-button" id="retakePhoto">Retomar Foto</button>
+                <button class="button is-dark camera-button" id="sendPhoto">Enviar Foto</button>
+            </div>
+
+            <!-- RECORDING -->
+            <div class="column is-12 has-text-centered" data-camera-state="recording">
+                <button class="button is-light camera-button" id="stopRecording">Detener Grabación</button>
+            </div>
+
+            <!-- PREVIEW_VIDEO -->
+            <div class="column is-12 has-text-centered" data-camera-state="preview_video">
+                <button class="button is-dark camera-button" id="sendVideo">Enviar Video</button>
+                <button class="button is-link camera-button" id="retakeVideo">Retomar Video</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Notificaciones -->
+    <div class="section">
+        <div class="columns is-centered">
+            <div class="column is-half">
+
+                <div class="notification is-danger is-light is-hidden" id="errors">
+                    <strong>Error:</strong> <span class="message-text"></span>
+                </div>
+
+                <div class="notification is-warning is-light is-hidden" id="warnings">
+                    <strong>Advertencia:</strong> <span class="message-text"></span>
+                </div>
+
+                <div class="notification is-info is-light" id="states">
+                    Estado: <strong>OFF</strong>
+                </div>
+
+                <div class="notification is-link is-light" id="performanceDiv">
+                    Rendimiento: <strong>-</strong>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>
